@@ -80,8 +80,8 @@ func (this *magentaCipher) Decrypt(dst, src []byte) {
         panic("cryptobin/magenta: output not full block")
     }
 
-    if alias.InexactOverlap(dst[:BlockSize], src[:BlockSize]) {
-        panic("cryptobin/magenta: invalid buffer overlap")
+    if subtle.InexactOverlap(dst[:BlockSize], src[:BlockSize]) {
+        panic("mars: invalid buffer overlap")
     }
 
     encSrc := bytesToUint32s(src)
